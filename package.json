@@ -1,0 +1,11 @@
+{
+  "name": "app3",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "author": "Manny",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.32.2"
+  }
+}
