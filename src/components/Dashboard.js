@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Footer from '../Footer';
-import Menu from '../Menu';
-import Header from '../Header';
+import Menu from './Menu';
+import Header from './Header';
+import Footer from './Footer'
 
 export default class Dashboard extends Component {
     render() {

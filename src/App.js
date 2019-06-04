@@ -14,6 +14,7 @@ export default class App extends Component {
           <Route exact path="/" component={Welcome} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/db" component={Dashboard} />
           <ProtectedRoute exact path="/dashboard" component={Dashboard} />
           <Route path="*" component={() => "404 NOT FOUND"} />
         </Switch>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { PostData } from '../service/PostData.js';
+import { PostData } from './PostData.js';
 //import auth from "./Auth";
 import './Login.css';
 
