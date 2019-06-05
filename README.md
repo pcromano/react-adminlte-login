@@ -8,4 +8,4 @@ How to update AdminLTE:
 
 - run "yarn install" to get dependencies.
 - run "yarn start" to start development server (http://localhost:8080).
-- run "yarn build" to generate static files and bundle.js to dist folder. 
+- run "yarn build" to generate static files and bundle.js to build folder. 
