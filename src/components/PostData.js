@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export function PostData(type, userData) {
-    let BaseURL = 'http://dev.codebine.com/frames.php';
+    let BaseURL = 'https://codebine.com/fakeauth';
 
     axios({
         method: 'post',
