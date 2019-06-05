@@ -2,13 +2,13 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    //context: path.join(__dirname, '/src'),
     entry: path.resolve(__dirname, 'src','index.js'),
     output: {
-        path: path.resolve(__dirname, '/dist'),
+        path: path.normalize(__dirname + '/build'),
+        publicPath: '',
         filename: 'bundle.js',
-        publicPath: '/',
-        
+        library: '[name]',
+        chunkFilename: '[name].[chunkhash].js'        
     },
     devServer: {
         contentBase: path.join(__dirname, '/public'),
@@ -26,7 +26,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'public', 'index.html')
+            template: path.join(__dirname, 'public', 'index.html'),
+            inject: 'body'
         }),
     ],
 };
