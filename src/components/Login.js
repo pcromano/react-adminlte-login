@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { PostData } from './PostData.js';
-//import auth from "./Auth";
 import './Login.css';
 
 class Login extends Component {
@@ -12,17 +11,16 @@ class Login extends Component {
             password: '',
             redirectToReferrer: false
         };
+        sessionStorage.clear();
         this.login = this.login.bind(this);
         this.onChange = this.onChange.bind(this);
     }
 
     login() {
         if (this.state.username && this.state.password) {    
-            //auth.isAuthenticated=true
-            //this.setState({ redirectToReferrer: true });
-            //return;        
-            PostData('login', this.state).then((result) => {                
-                let responseJson = result;
+            console.log(this.state);
+            PostData('login', JSON.stringify(this.state))
+            .then(responseJson => {                                
                 if (responseJson.userData) {                    
                     sessionStorage.setItem('userData', JSON.stringify(responseJson));
                     this.setState({ redirectToReferrer: true });

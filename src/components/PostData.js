@@ -1,19 +1,8 @@
 import axios from "axios"
 
-export function PostData(type, userData) {
-    let BaseURL = 'https://codebine.com/fakeauth';
-
-    axios({
-        method: 'post',
-        url: `${BaseURL}`,
-        headers: { 'content-type': 'application/json' },        
-        type: type,
-        data: JSON.stringify(userData)
-    })
-        .then(result => {            
-            sessionStorage('userData',result.data.sent)            
-        })
-        .catch(error => {
-
-        });
+export function PostData(posttype, userData) {    
+    var BaseURL = posttype === 'login' ? 'https://codebine.com/Fakeauth' : '';        
+    return axios.post(BaseURL, JSON.stringify(userData)) 
+      .then(response => response.data)
+      .catch(error => error)
 }

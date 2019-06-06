@@ -10,10 +10,8 @@ export const ProtectedRoute = ({
   return (
     <Route
       {...rest}
-      render={props => {
-          console.log(Login.props)
-          return
-        if (props) {
+      render={props => {          
+        if (sessionStorage.getItem('userData')) {
           return <Component {...props} />;
         } else {
           return (
