@@ -21,7 +21,11 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader'
-            }
+            },
+            {
+                test: /\.(png|jpg|jpeg|svg)$/,
+                loader: 'file-loader'
+            },
         ]
     },
     plugins: [

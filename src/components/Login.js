@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { PostData } from './PostData.js';
-import './Login.css';
 
 class Login extends Component {
     constructor() {
@@ -17,17 +16,16 @@ class Login extends Component {
     }
 
     login() {
-        if (this.state.username && this.state.password) {    
-            console.log(this.state);
+        if (this.state.username && this.state.password) {
             PostData('login', JSON.stringify(this.state))
-            .then(responseJson => {                                
-                if (responseJson.userData) {                    
-                    sessionStorage.setItem('userData', JSON.stringify(responseJson));
-                    this.setState({ redirectToReferrer: true });
-                } else if(responseJson.error) {
-                    console.log(responseJson.error.text)                    
-                }
-            });
+                .then(responseJson => {
+                    if (responseJson.userData) {
+                        sessionStorage.setItem('userData', JSON.stringify(responseJson));
+                        this.setState({ redirectToReferrer: true });
+                    } else if (responseJson.error) {
+                        sessionStorage.clear();
+                    }
+                });
         }
     }
 
@@ -41,17 +39,18 @@ class Login extends Component {
         }
 
         return (
-            <div className="row" id="Body">
-                <div className="medium-5 columns left">
-                    <h4>Login</h4>
-                    <label>Username</label>
-                    <input type="text" name="username" onChange={this.onChange} />
-                    <label>Password</label>
-                    <input type="password" name="password" onChange={this.onChange} />
-                    <input type="submit" value="Login" onClick={this.login} />
-                    <a href="/signup">Registration</a>
-                    
-                </div>
+            <div className="loginform center" style={{'text-align':'center','padding':50}}>                
+                <p>
+                <label className="bold">Username</label>
+                <input type="text" name="username" onChange={this.onChange} />
+                <br />
+                <label>Password</label>
+                <input type="password" name="password" onChange={this.onChange} />
+                </p>
+                <p>
+                <input type="button" value="Login" onClick={this.login} />
+                </p>
+                <p><em>For testing only. Enter any username and password combination.</em></p>
             </div>
         );
     }
