@@ -5,8 +5,8 @@ module.exports = {
     entry: path.resolve(__dirname, 'src','index.js'),
     output: {
         path: path.normalize(__dirname + '/build'),
-        publicPath: '',
-        filename: 'bundle.js',
+        publicPath: '/',
+        filename: 'js/bundle.js',
         library: '[name]',
         chunkFilename: '[name].[chunkhash].js'        
     },
